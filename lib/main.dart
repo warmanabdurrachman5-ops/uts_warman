@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
 
-import 'Soal/Teks2.dart';
+import 'package:flutter/material.dart';
+import 'Soal/Taks1.dart';
 
 void main() {
   runApp(const MyWidget());
@@ -11,6 +11,9 @@ class MyWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(debugShowCheckedModeBanner: false, home: Teks2());
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Taks1(),
+    );
   }
 }

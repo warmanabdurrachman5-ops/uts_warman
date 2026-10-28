@@ -49,7 +49,7 @@ class OnboardingPage extends StatelessWidget {
                       flex: 6,
                       child: Center(
                         child: Image.network(
-                          'https://storyset.com/illustration/online-shopping/pana',
+                          'https://images.unsplash.com/photo-1504674900247-0877df9cc836',
                           fit: BoxFit.contain,
                           errorBuilder: (context, error, stackTrace) {
                             return Container(

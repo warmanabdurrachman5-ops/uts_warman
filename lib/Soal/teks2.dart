@@ -35,16 +35,137 @@ final List<Map<String, dynamic>> dummyOrders = [
   },
 ];
 
-
-
 class Teks2 extends StatelessWidget {
-  const new({super.key});
+  const Teks2({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: AppBar(
-      title: const Text('Order List'),
-    ),
-    )
+    return Scaffold(
+      appBar: AppBar(title: const Text('Order List')),
+      body: ListView.builder(
+        itemCount: dummyOrders.length,
+        padding: const EdgeInsets.all(16.0),
+        itemBuilder: (context, index) {
+          final order = dummyOrders[index];
+          return Container(
+            margin: const EdgeInsets.only(bottom: 16.0),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Gambar dengan sudut melengkung (Rounded Corners)
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(16.0),
+                  child: Image.network(
+                    order['imageUrl'],
+                    width: 100,
+                    height: 100,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                const SizedBox(width: 12),
+                // Informasi Detail Pesanan
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      // Kategori dengan tanda pagar (#)
+                      Text(
+                        '#${order['category']}',
+                        style: const TextStyle(
+                          color: Colors.deepOrange,
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const SizedBox(height: 2),
+                      // Judul Makanan
+                      Text(
+                        order['title'],
+                        style: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black87,
+                        ),
+                      ),
+                      const SizedBox(height: 2),
+                      // ID Pesanan
+                      Text(
+                        'ID: ${order['id']}',
+                        style: TextStyle(fontSize: 13, color: Colors.grey[600]),
+                      ),
+                      const SizedBox(height: 8),
+                      // Harga dan Tombol Aksi (Done & Cancel)
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          // Harga
+                          Text(
+                            '\$${order['price']}',
+                            style: const TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black87,
+                            ),
+                          ),
+                          // Tombol Done & Cancel
+                          Row(
+                            children: [
+                              // Tombol Done (Filled Orange)
+                              SizedBox(
+                                height: 36,
+                                child: ElevatedButton(
+                                  onPressed: () {
+                                    // Aksi ketika tombol Done diklik
+                                  },
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.deepOrange,
+                                    foregroundColor: Colors.white,
+                                    elevation: 0,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(8),
+                                    ),
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 14,
+                                    ),
+                                  ),
+                                  child: const Text('Done'),
+                                ),
+                              ),
+                              const SizedBox(width: 8),
+                              // Tombol Cancel (Outlined Orange)
+                              SizedBox(
+                                height: 36,
+                                child: OutlinedButton(
+                                  onPressed: () {
+                                    // Aksi ketika tombol Cancel diklik
+                                  },
+                                  style: OutlinedButton.styleFrom(
+                                    foregroundColor: Colors.deepOrange,
+                                    side: const BorderSide(
+                                      color: Colors.deepOrange,
+                                    ),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(8),
+                                    ),
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 14,
+                                    ),
+                                  ),
+                                  child: const Text('Cancel'),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          );
+        },
+      ),
+    );
   }
 }
