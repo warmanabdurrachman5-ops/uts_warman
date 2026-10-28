@@ -13,7 +13,7 @@ import 'package:uts_warman_abdurachman_lp3i_karawang/main.dart';
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const Soal1());
+    await tester.pumpWidget(const MyWidget());
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);
