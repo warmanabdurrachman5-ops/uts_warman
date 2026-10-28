@@ -8,7 +8,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:uts_warman_abdurachman_lp3i_karawang/main.dart';
+import 'package:uts_warman_abdurachman_lp3i_karawang/Soal/Taks1.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
